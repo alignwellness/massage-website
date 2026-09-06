@@ -65,17 +65,100 @@ nav a {
   font-size: clamp(42px, 8vw, 76px);
   margin-bottom: 15px;
 }
-
-.hero p {
-  font-size: 20px;
-  max-width: 650px;
-  margin: auto auto 28px;
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  padding: 30px 6%;
 }
 
-.button {
+.gallery-card {
+  background: #ffffff;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(80, 40, 100, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.gallery-card:hover {
+  transform: translateY(-6px);
+}
+
+.gallery-card img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  display: block;
+}
+
+.gallery-content {
+  padding: 24px;
+  text-align: center;
+}
+
+.gallery-content h3 {
+  color: #7a4bb3;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.gallery-content p {
+  color: #555;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.gift {
+  padding: 70px 6%;
+  background: linear-gradient(135deg, #faf5ff, #ffffff);
+}
+
+.gift-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  max-width: 900px;
+  margin: 30px auto 0;
+}
+
+.gift-grid .box {
+  background: #ffffff;
+  padding: 35px 25px;
+  border-radius: 22px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(80, 40, 100, 0.12);
+}
+
+.gift-grid h3 {
+  color: #7a4bb3;
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+.gift-grid p {
+  color: #555;
+  margin-bottom: 22px;
+}
+
+.gift-grid a {
   display: inline-block;
-  background: white;
-  color: #6d3fb5;
+  background: #7a4bb3;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.gift-grid a:hover {
+  opacity: 0.85;
+}
+
+@media (max-width: 700px) {
+  .gift-grid {
+    grid-template-columns: 1fr;
+  }
+}
   padding: 14px 25px;
   border-radius: 30px;
   text-decoration: none;
@@ -325,46 +408,119 @@ Extra time to relax and enjoy a complete wellness experience.
 </div>
 
 </div>
-</section>
-
 <section id="gift" class="gift">
 
-<div class="title">
-<h2>Gift Cards</h2>
-<p>Give someone special the gift of wellness.</p>
-</div>
+  <div class="title">
+    <h2>Connect With ALIGN Wellness</h2>
+    <p>Make time for relaxation, wellness, and a little self-care.</p>
+  </div>
 
-<div class="gift-grid">
+  <div class="gift-grid">
 
-<div class="box">
-<h3>Check E-Gift Card</h3>
-<p>Enter your gift card code.</p>
+    <div class="box">
+      <h3>🎁 E-Gift Card</h3>
+      <p>Give someone special the gift of relaxation and wellness.</p>
 
-<input type="text" placeholder="Gift card code">
+      <a href="https://www.amazon.com/Apple-Gift-Card-accessories-Delivery/dp/B08F3C99KN" target="_blank">
+  Get an E-Gift Card →
+</a>
+    </div>
 
-<button onclick="alert('Your live e-gift card system will be connected here.')">
-Check E-Gift Card
-</button>
-</div>
+    <div class="box">
+      <h3>💬 Text ALIGN Wellness</h3>
+      <p>Have a question or ready to connect? Send us a text.</p>
 
-<div class="box">
-<h3>Check Gift Card Balance</h3>
-<p>Enter your gift card number.</p>
+      <a href="sms:4022015594">
+        Text Us →
+      </a>
+    </div>
 
-<input type="text" placeholder="Gift card number">
-
-<button onclick="alert('Your live gift card balance system will be connected here.')">
-Check Balance
-</button>
-</div>
-
-</div>
+  </div>
 
 </section>
 
 <section id="gallery">
 
 <div class="title">
+  <h2>THE ALIGN WELLNESS EXPERIENCE</h2>
+  <p>Take a moment to slow down, reconnect, and make space for your well-being.</p>
+</div>
+
+<div class="gallery-grid">
+
+  <div class="gallery-card">
+    <img src="IMG_2121.jpeg" alt="Relax and Restore">
+    <div class="gallery-content">
+      <h3>Relax & Restore</h3>
+      <p>A peaceful experience designed to help you unwind, release everyday tension, and reconnect with a sense of balance.</p>
+    </div>
+  </div>
+
+  <div class="gallery-card">
+    <img src="IMG_2069.jpeg" alt="Personalized Wellness">
+    <div class="gallery-content">
+      <h3>Personalized Wellness</h3>
+      <p>Every session is approached with comfort, care, and attention to your individual relaxation and wellness needs.</p>
+    </div>
+  </div>
+
+  <div class="gallery-card">
+    <img src="IMG_2014.jpeg" alt="Your Time to Align">
+    <div class="gallery-content">
+      <h3>Your Time to Align</h3>
+      <p>Take a moment for yourself. Step away from the everyday and enjoy a calm, welcoming wellness experience.</p>
+    </div>
+  </div>
+
+  <div class="gallery-card">
+    <img src="IMG_1905.jpeg" alt="Peaceful Wellness">
+    <div class="gallery-content">
+      <h3>Peaceful Moments</h3>
+      <p>Create space to breathe, relax, and enjoy a wellness experience centered around you.</p>
+    </div>
+  </div>
+
+  <div class="gallery-card">
+    <img src="IMG_2019.jpeg" alt="Self Care">
+    <div class="gallery-content">
+      <h3>Intentional Self-Care</h3>
+      <p>Your time matters. Give yourself permission to pause, recharge, and leave feeling renewed.</p>
+    </div>
+  </div>
+
+  <div class="gallery-card">
+    <img src="IMG_2020.jpeg" alt="Wellness Experience">
+    <div class="gallery-content">
+      <h3>Feel Refreshed</h3>
+      <p>A soothing wellness experience created to help you leave feeling refreshed, balanced, and cared for.</p>
+    </div>
+  </div>
+
+  <div class="gallery-card">
+    <img src="IMG_2021.jpeg" alt="ALIGN Wellness">
+    <div class="gallery-content">
+      <h3>Find Your Balance</h3>
+      <p>Step away from the busy pace of life and make room for relaxation and restoration.</p>
+    </div>
+  </div>
+
+  <div class="gallery-card">
+    <img src="IMG_2070.jpeg" alt="ALIGN Wellness">
+    <div class="gallery-content">
+      <h3>A Moment for You</h3>
+      <p>Relax, reset, and enjoy a welcoming atmosphere designed with your comfort in mind.</p>
+    </div>
+  </div>
+
+  <div class="gallery-card">
+    <img src="IMG_2079.jpeg" alt="ALIGN Wellness">
+    <div class="gallery-content">
+      <h3>Restore Your Energy</h3>
+      <p>Make wellness part of your routine and give yourself a moment to simply breathe and reset.</p>
+    </div>
+  </div>
+
+</div>
 
 <h2>Gallery</h2>
 
