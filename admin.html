@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ALIGN Wellness | Admin</title>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f3f7;
+  margin: 0;
+  padding: 30px;
+}
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+}
+
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+  margin-bottom: 20px;
+}
+
+h1 {
+  color: #222;
+}
+
+input {
+  width: 100%;
+  padding: 14px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+button {
+  padding: 13px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background: #222;
+  color: white;
+  margin-top: 10px;
+}
+
+#dashboard {
+  display: none;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+th {
+  background: #f1eef4;
+}
+
+.error {
+  color: #c00;
+  margin-top: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div id="login" class="card">
+    <h1>ALIGN Wellness</h1>
+    <h2>Admin Login</h2>
+
+    <input type="email" id="email" placeholder="Admin Email">
+    <input type="password" id="password" placeholder="Password">
+
+    <button onclick="login()">Login</button>
+
+    <div id="error" class="error"></div>
+  </div>
+
+  <div id="dashboard" class="card">
+    <h1>Booking Dashboard</h1>
+
+    <button onclick="logout()">Log Out</button>
+
+    <div id="bookings">Loading bookings...</div>
+  </div>
+
+</div>
+
+<script>
+
+const SUPABASE_URL = "https://qleyxkqsmhtknjvedxpk.supabase.co";
+
+/*
+  IMPORTANT:
+  Paste your existing Supabase PUBLISHABLE KEY
+  here, the same key already used in your index.html.
+*/
+const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_0i5-QKNTdM2XOLPWxs_ExA_UJJeVXhK";
+
+const supabaseClient = supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_PUBLISHABLE_KEY
+);
+
+async function login() {
+
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  document.getElementById("error").textContent = "";
+
+  const { data, error } =
+    await supabaseClient.auth.signInWithPassword({
+      email: email,
+      password: password
+    });
+
+  if (error) {
+    document.getElementById("error").textContent =
+      error.message;
+    return;
+  }
+
+  document.getElementById("login").style.display = "none";
+  document.getElementById("dashboard").style.display = "block";
+
+  loadBookings();
+}
+
+async function loadBookings() {
+
+  const { data, error } = await supabaseClient
+    .from("bookings")
+    .select("*")
+    .order("created_at", { ascending: false });
+
+  if (error) {
+    document.getElementById("bookings").innerHTML =
+      "<p>Unable to load bookings: " +
+      error.message +
+      "</p>";
+    return;
+  }
+
+  if (!data || data.length === 0) {
+    document.getElementById("bookings").innerHTML =
+      "<p>No bookings yet.</p>";
+    return;
+  }
+
+  let html = `
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Service</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Status</th>
+      </tr>
+  `;
+
+  data.forEach(function(booking) {
+
+    html += `
+      <tr>
+        <td>${booking.name || ""}</td>
+        <td>${booking.email || ""}</td>
+        <td>${booking.phone || ""}</td>
+        <td>${booking.service || ""}</td>
+        <td>${booking.booking_date || ""}</td>
+        <td>${booking.booking_time || ""}</td>
+        <td>${booking.status || ""}</td>
+      </tr>
+    `;
+
+  });
+
+  html += "</table>";
+
+  document.getElementById("bookings").innerHTML = html;
+}
+
+async function logout() {
+
+  await supabaseClient.auth.signOut();
+
+  document.getElementById("dashboard").style.display = "none";
+  document.getElementById("login").style.display = "block";
+}
+
+</script>
+
+</body>
+</html>
