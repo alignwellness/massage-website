@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ALIGN Wellness | Massage Therapy</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: #211827;
+  background: #fff;
+  line-height: 1.6;
+}
+
+header {
+  background: #17111d;
+  color: white;
+  padding: 18px 6%;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.logo span {
+  color: #b98bea;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 18px;
+}
+
+.hero {
+  min-height: 75vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #21152d, #6d3fb5);
+}
+
+.hero h1 {
+  font-size: clamp(42px, 8vw, 76px);
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 20px;
+  max-width: 650px;
+  margin: auto auto 28px;
+}
+
+.button {
+  display: inline-block;
+  background: white;
+  color: #6d3fb5;
+  padding: 14px 25px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+section {
+  padding: 70px 7%;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.title h2 {
+  font-size: 36px;
+}
+
+.title p {
+  color: #777;
+}
+
+.services {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.card {
+  padding: 30px;
+  border-radius: 18px;
+  background: #faf7fc;
+  border: 1px solid #eadff1;
+}
+
+.card h3 {
+  margin-bottom: 10px;
+}
+
+.card p {
+  color: #666;
+}
+
+.prices {
+  max-width: 750px;
+  margin: auto;
+}
+
+.price {
+  display: flex;
+  justify-content: space-between;
+  padding: 17px 20px;
+  margin-bottom: 10px;
+  background: #f7f1fb;
+  border-radius: 12px;
+  font-weight: bold;
+}
+
+.price strong {
+  color: #6d3fb5;
+}
+
+.gift {
+  background: #f7f1fb;
+}
+
+.gift-grid {
+  max-width: 850px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+.box {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  border: 1px solid #e6d9ed;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 14px;
+  margin: 8px 0;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+button {
+  border: none;
+  background: #6d3fb5;
+  color: white;
+  padding: 14px 20px;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.photo {
+  height: 220px;
+  border-radius: 18px;
+  background: #eee7f4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #765d84;
+  font-weight: bold;
+}
+
+.booking {
+  max-width: 750px;
+  margin: auto;
+}
+
+footer {
+  background: #17111d;
+  color: white;
+  text-align: center;
+  padding: 25px;
+}
+
+@media(max-width: 750px) {
+  .services,
+  .gift-grid,
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+
+  nav div {
+    display: none;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<nav>
+<div class="logo">ALIGN <span>WELLNESS</span></div>
+<div>
+<a href="#services">Services</a>
+<a href="#pricing">Pricing</a>
+<a href="#gift">Gift Cards</a>
+<a href="#booking">Book</a>
+</div>
+</nav>
+</header>
+
+<section class="hero">
+<div>
+<p>PROFESSIONAL MASSAGE THERAPY</p>
+<h1>Relax. Restore. Align.</h1>
+<p>
+Welcome to ALIGN Wellness — a comfortable space dedicated to relaxation,
+wellness and personalized massage therapy.
+</p>
+<a class="button" href="#booking">Request a Booking</a>
+</div>
+</section>
+
+<section id="services">
+<div class="title">
+<h2>Our Services</h2>
+<p>Personalized wellness sessions designed around your needs.</p>
+</div>
+
+<div class="services">
+
+<div class="card">
+<h3>Relaxation Massage</h3>
+<p>
+A soothing massage experience designed to help you slow down,
+relax and recharge.
+</p>
+</div>
+
+<div class="card">
+<h3>Customized Massage</h3>
+<p>
+A personalized session tailored around your comfort and wellness goals.
+</p>
+</div>
+
+<div class="card">
+<h3>Extended Sessions</h3>
+<p>
+Extra time to relax and enjoy a complete wellness experience.
+</p>
+</div>
+
+</div>
+</section>
+
+<section id="pricing">
+<div class="title">
+<h2>Session Pricing</h2>
+<p>Simple and transparent pricing.</p>
+</div>
+
+<div class="prices">
+
+<div class="price">
+<span>30 Minutes</span>
+<strong>$150</strong>
+</div>
+
+<div class="price">
+<span>1 Hour</span>
+<strong>$250</strong>
+</div>
+
+<div class="price">
+<span>2 Hours</span>
+<strong>$350</strong>
+</div>
+
+<div class="price">
+<span>3 Hours</span>
+<strong>$500</strong>
+</div>
+
+<div class="price">
+<span>4 Hours</span>
+<strong>$650</strong>
+</div>
+
+<div class="price">
+<span>Overnight</span>
+<strong>$1,100</strong>
+</div>
+
+</div>
+</section>
+
+<section id="gift" class="gift">
+
+<div class="title">
+<h2>Gift Cards</h2>
+<p>Give someone special the gift of wellness.</p>
+</div>
+
+<div class="gift-grid">
+
+<div class="box">
+<h3>Check E-Gift Card</h3>
+<p>Enter your gift card code.</p>
+
+<input type="text" placeholder="Gift card code">
+
+<button onclick="alert('Your live e-gift card system will be connected here.')">
+Check E-Gift Card
+</button>
+</div>
+
+<div class="box">
+<h3>Check Gift Card Balance</h3>
+<p>Enter your gift card number.</p>
+
+<input type="text" placeholder="Gift card number">
+
+<button onclick="alert('Your live gift card balance system will be connected here.')">
+Check Balance
+</button>
+</div>
+
+</div>
+
+</section>
+
+<section id="gallery">
+
+<div class="title">
+<h2>Gallery</h2>
+<p>Your photos can be added here later.</p>
+</div>
+
+<div class="gallery">
+
+<div class="photo">YOUR PHOTO HERE</div>
+<div class="photo">YOUR SPACE HERE</div>
+<div class="photo">YOUR WELLNESS PHOTO HERE</div>
+
+</div>
+
+</section>
+
+<section id="booking">
+
+<div class="title">
+<h2>Request a Booking</h2>
+<p>Send us your preferred appointment details.</p>
+</div>
+
+<div class="booking">
+
+<input type="text" placeholder="Full Name">
+
+<input type="email" placeholder="Email Address">
+
+<input type="tel" placeholder="Phone Number">
+
+<select>
+<option>Select a Session</option>
+<option>30 Minutes — $150</option>
+<option>1 Hour — $250</option>
+<option>2 Hours — $350</option>
+<option>3 Hours — $500</option>
+<option>4 Hours — $650</option>
+<option>Overnight — $1,100</option>
+</select>
+
+<input type="date">
+
+<input type="time">
+
+<textarea placeholder="Message"></textarea>
+
+<button onclick="alert('Thank you! Your booking request will be connected to the private booking dashboard.')">
+Send Booking Request
+</button>
+
+</div>
+
+</section>
+
+<footer>
+<p>© 2026 ALIGN Wellness. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
