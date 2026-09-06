@@ -470,13 +470,13 @@ Send Booking Request
       const { error } = await supabaseClient
         .from("bookings")
         .insert({
-          "Name": name,
-          "Email": email,
-          "Phone": phone,
-          "Service": service,
-          "Booking date": bookingDate,
-          "Booking time": bookingTime,
-          "Status": "Pending"
+         name: name,
+email: email,
+phone: phone,
+service: service,
+booking_date: bookingDate,
+booking_time: bookingTime,
+status: "Pending"
         });
 
       if (error) {
