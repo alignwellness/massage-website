@@ -421,12 +421,72 @@ Send Booking Request
 
 <script>
   const SUPABASE_URL = "https://qleyxkqsmhtknjvedxpk.supabase.co";
-  const SUPABASE_PUBLISHABLE_KEY = sb_publishable_0i5-QKNTdM2XOLPWxs_ExA_UJJeVXhK;
+  const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_0i5-QKNTdM2XOLPWxs_ExA_UJJeVXhK";
 
   const supabaseClient = supabase.createClient(
     SUPABASE_URL,
     SUPABASE_PUBLISHABLE_KEY
   );
 
-  console.log("Massage Signature connected to Supabase");
+  const bookingForm = document.querySelector("form");
+
+  if (bookingForm) {
+    bookingForm.addEventListener("submit", async function (event) {
+      event.preventDefault();
+
+      const formData = new FormData(bookingForm);
+
+      const name =
+        formData.get("name") ||
+        formData.get("Name") ||
+        "";
+
+      const email =
+        formData.get("email") ||
+        formData.get("Email") ||
+        "";
+
+      const phone =
+        formData.get("phone") ||
+        formData.get("Phone") ||
+        "";
+
+      const service =
+        formData.get("service") ||
+        formData.get("Service") ||
+        formData.get("session") ||
+        "";
+
+      const bookingDate =
+        formData.get("date") ||
+        formData.get("booking_date") ||
+        "";
+
+      const bookingTime =
+        formData.get("time") ||
+        formData.get("booking_time") ||
+        "";
+
+      const { error } = await supabaseClient
+        .from("bookings")
+        .insert({
+          "Name": name,
+          "Email": email,
+          "Phone": phone,
+          "Service": service,
+          "Booking date": bookingDate,
+          "Booking time": bookingTime,
+          "Status": "Pending"
+        });
+
+      if (error) {
+        console.error(error);
+        alert("Sorry, your booking could not be submitted. Please try again.");
+        return;
+      }
+
+      alert("Your booking request has been sent successfully!");
+      bookingForm.reset();
+    });
+  }
 </script>
