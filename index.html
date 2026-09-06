@@ -457,15 +457,19 @@ Send Booking Request
         formData.get("session") ||
         "";
 
-      const bookingDate =
-        formData.get("date") ||
-        formData.get("booking_date") ||
-        "";
+      const bookingDate = formData.get("booking_date");
 
-      const bookingTime =
-        formData.get("time") ||
-        formData.get("booking_time") ||
-        "";
+if (!bookingDate || bookingDate === "'") {
+  alert("Please select a booking date.");
+  return;
+}
+
+      const bookingTime = formData.get("booking_time");
+
+if (!bookingTime || bookingTime === "'") {
+  alert("Please select a booking time.");
+  return;
+}
 
       const { error } = await supabaseClient
         .from("bookings")
